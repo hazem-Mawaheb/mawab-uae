@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-tag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مواهب الإمارات | البوابة الذكية الموحدة</title>
+    <style>
+        :root {
+            --primary-blue: #1a365d;
+            --light-blue: #f0f4f8;
+            --dark-gold: #b28a30;
+            --light-gold: #dfba6b;
+            --text-dark: #2d3748;
+            --white: #ffffff;
+            --gray-light: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--light-blue);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .top-admin-bar {
+            background-color: #0f172a;
+            color: var(--white);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .admin-icon-btn {
+            background: none;
+            border: 1px solid var(--light-gold);
+            color: var(--light-gold);
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .admin-icon-btn:hover {
+            background-color: var(--dark-gold);
+            color: var(--white);
+        }
+
+        .lang-switcher .lang-btn {
+            background-color: var(--dark-gold);
+            color: var(--white);
+            border: none;
+            padding: 6px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), #0f2340);
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--dark-gold);
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 10px;
+            color: var(--light-gold);
+        }
+
+        .portal-tabs-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            margin-top: -25px;
+            background: var(--white);
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+        }
+
+        .portal-tab {
+            padding: 18px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            background: #edf2f7;
+            border: none;
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+        }
+
+        .portal-tab.active {
+            background: var(--white);
+            color: var(--dark-gold);
+            border-bottom: 4px solid var(--dark-gold);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .portal-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: none;
+        }
+
+        .portal-box.active {
+            display: block;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            form { grid-template-columns: 1fr; }
+            .portal-tabs-container { grid-template-columns: 1fr; margin-top: 0; }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            border: 1px solid #cbd5e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #f7fafc;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--dark-gold);
+            background: var(--white);
+        }
+
+        .reg-notice {
+            background-color: #ebf8ff;
+            border-right: 4px solid #3182ce;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            grid-column: span 2;
+        }
+        
+        html[dir="ltr"] .reg-notice {
+            border-right: none;
+            border-left: 4px solid #3182ce;
+        }
+
+        button.btn-submit {
+            grid-column: span 2;
+            background-color: var(--dark-gold);
+            color: var(--white);
+            padding: 14px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button.btn-submit:hover {
+            background-color: var(--primary-blue);
+        }
+
+        .partners-section {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .partners-section h2 {
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+        }
+
+        .partners-slider {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .partner-logo-item {
+            background: #f8fafc;
+            border: 1px solid var(--gray-light);
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #4a5568;
+            min-width: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+            border-top: 5px solid var(--dark-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-admin-bar">
+        <button class="admin-icon-btn" onclick="triggerAdminEdit()">
+            ⚙️ <span id="admin-text">لوحة المستخدم الرئيسي (تعديل البيانات)</span>
+        </button>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
+        </div>
+    </div>
+
+    <header>
+        <h1 id="main-title">مواهب الإمارات لحلول القوى العاملة</h1>
+        <p id="main-subtitle">بوابة الأتمتة الموحدة للشركات وأصحاب الأعمال والباحثين عن وظائف</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="portal-tabs-container">
+            <button class="portal-tab active" id="tab-client" onclick="switchPortal('client')">🏢 بوابة أصحاب الأعمال والشركات (طلب عمالة)</button>
+            <button class="portal-tab" id="tab-candidate" onclick="switchPortal('candidate')">💼 بوابة الباحثين عن عمل (تسجيل البيانات والـ CV)</button>
+        </div>
+
+        <!-- 1. بورتال الشركات -->
+        <div id="portal-box-client" class="portal-box active">
+            <!-- استبدل الرابط في الأسفل برابط Formspree الخاص بك -->
+            <form action="https://formspree.io" method="POST">
+                <div class="reg-notice" id="notice-client">💡 التسجيل اختياري: يمكنك تعبئة طلب استقدام أو توفير العمالة مباشرة دون الحاجة لإنشاء حساب مسبق في الموقع.</div>
+                <input type="hidden" name="form_type" value="Client_Order">
+                
+                <div class="form-group">
+                    <label id="lbl-brand-c-name">اسم الشركة / المنشأة المستفيدة *</label>
+                    <input type="text" name="Company_Name" required placeholder="مثال: شركة الجابر للمقاولات">
+                </div>
+                <div class="form-group">
+                    <label id="lbl-c-loc">موقع العمل الفعلي داخل الدولة *</label>
+                    <select name="Company_Location" required>
+                        <option value="Abu Dhabi">أبو ظبي / المنطقة الغربية</option>
+                        <option value="Dubai">دبي</option>
+                        <option value="Sharjah">الشارقة</option>
+                        <option value="Ajman">عجمان</option>
+                        <option value="Ras Al Khaimah">رأس الخيمة</option>
+                        <option value="Fujairah">الفجيرة</option>
+                        <option value="Umm Al Quwain">أم القوين</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label id="lbl-c-title">المسمى الوظيفي المطلوب *</label>
+                    <input type="text" name="Required_Vacancies" required placeholder="مثال: مهندس فني، نجار، مساعد طبي">
+                </div>
+                <div class="form-group">
+                    <label id="lbl-c-count">العدد المطلوب من العمال والموظفين *</label>
+                    <input type="number" name="No_of_Vacancies" required min="1" placeholder="أدخل العدد">
+                </div>
+                <div class="form-group">
+                    <label id="lbl-c-ind">الصناعة أو النشاط التجاري *</label>
+                    <select name="Man_Power_Type" required>
+                        <option value="Construction">مقاولات وبناء (ماسون، نجار)</option>
+                        <option value="Healthcare">كوادر طبية مساعدة وفنيين</option>
+                        <option value="Technical">فنيين متخصصين وميكانيكي</option>
+                        <option value="Skilled">عمالة ماهرة ومتخصصة</option>
